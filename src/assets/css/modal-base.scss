@@ -19,6 +19,13 @@
 
 .metadata-menu.modal-container {
 
+    .modal {
+        padding-top: 40px;
+
+        .modal-close-button {
+            padding-top: 35px
+        }
+    }
     &.narrow {
 
         .modal{
@@ -104,7 +111,7 @@
             font-style: italic;
             color: var(--color-accent);
 
-            @media screen and (max-width: 400px) {
+            @media screen and (max-width: 440px) {
                 display: none;
             }
         }
@@ -205,7 +212,7 @@
                 }
 
 
-                @media screen and (max-width: 400px) {
+                @media screen and (max-width: 440px) {
                     display: none;
                 }
             }
@@ -216,7 +223,7 @@
             }
 
             .time-picker{
-                width: 2em;
+                //width: 2em;
                 margin-right: 0.5em;
                 font-size: large;
             }

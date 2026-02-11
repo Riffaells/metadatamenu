@@ -16,6 +16,7 @@ export default class ExtraButton extends Component {
     }
 
     onload(): void {
+
         this.plugin.registerMarkdownPostProcessor((el, ctx) => {
             updateElLinks(this.plugin.app, this.plugin, el, ctx)
         });
@@ -62,15 +63,18 @@ export default class ExtraButton extends Component {
 
         // Register new observers
         this.registerViewType('backlink', ".tree-item-inner", true);
-        this.registerViewType('outgoing-link', ".tree-item-inner", true);
-        this.registerViewType('search', ".tree-item-inner", true);
-        this.registerViewType('BC-matrix', '.BC-Link');
+        this.registerViewType('bases', '.internal-link', true, 'internal-link', 'bases-tr');
+        this.registerViewType('bases', '.internal-link', true, 'internal-link', 'bases-cards-item');
         this.registerViewType('BC-ducks', '.internal-link');
+        this.registerViewType('BC-matrix', '.BC-Link');
         this.registerViewType('BC-tree', 'a.internal-link');
-        this.registerViewType('graph-analysis', '.internal-link');
-        this.registerViewType('starred', '.nav-file-title-content', true);
         this.registerViewType('file-explorer', '.nav-file-title-content', true);
+        this.registerViewType('graph-analysis', '.internal-link');
+        this.registerViewType('markdown', '.internal-link', true);
+        this.registerViewType('outgoing-link', ".tree-item-inner", true);
         this.registerViewType('recent-files', '.nav-file-title-content', true);
+        this.registerViewType('search', ".tree-item-inner", true);
+        this.registerViewType('starred', '.nav-file-title-content', true);
         // If backlinks in editor is on
         // @ts-ignore
         if (this.plugin.app?.internalPlugins?.plugins?.backlink?.instance?.options?.backlinkInDocument) {
@@ -109,13 +113,19 @@ export default class ExtraButton extends Component {
         this.modalObservers.last()?.observe(doc.body, config);
     }
 
-    private registerViewType(viewTypeName: string, selector: string, updateDynamic = false) {
+    private registerViewType(
+        viewTypeName: string,
+        selector: string,
+        updateDynamic = false,
+        ownClass = 'tree-item-inner',
+        parent_class = 'tree-item'
+    ) {
         const leaves = this.plugin.app.workspace.getLeavesOfType(viewTypeName);
         if (leaves.length > 1) {
             for (let i = 0; i < leaves.length; i++) {
                 const container = leaves[i].view.containerEl;
                 if (updateDynamic) {
-                    this._watchContainerDynamic(viewTypeName + i, container, selector)
+                    this._watchContainerDynamic(viewTypeName + i, container, selector, ownClass, parent_class)
                 }
                 else {
                     this._watchContainer(viewTypeName + i, container, selector);
@@ -136,6 +146,7 @@ export default class ExtraButton extends Component {
     }
 
     private updateContainer(container: HTMLElement, selector: string, viewTypeName: string | null) {
+
         const nodes = container.findAll(selector);
         for (let i = 0; i < nodes.length; ++i) {
             const el = nodes[i] as HTMLElement;
@@ -176,6 +187,7 @@ export default class ExtraButton extends Component {
                             // @ts-ignore
                             if (n.className.includes && typeof n.className.includes === 'function' && n.className.includes(parent_class)) {
                                 const fileDivs = (n as HTMLElement).getElementsByClassName(ownClass);
+                                if (viewType === 'bases') console.log(n)
                                 for (let i = 0; i < fileDivs.length; ++i) {
                                     const link = fileDivs[i] as HTMLElement;
                                     updateDivExtraAttributes(this.plugin.app, this.plugin, link, viewType, "");

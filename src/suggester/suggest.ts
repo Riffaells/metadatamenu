@@ -147,6 +147,7 @@ export abstract class TextInputSuggest<T> implements ISuggestOwner<T> {
         if (suggestions.length > 0) {
             this.suggest.setSuggestions(suggestions);
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            //@ts-ignore
             this.open((<any>app).dom.appContainerEl, this.inputEl);
         } else {
             this.close();
@@ -155,6 +156,7 @@ export abstract class TextInputSuggest<T> implements ISuggestOwner<T> {
 
     open(container: HTMLElement, inputEl: HTMLElement): void {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        //@ts-ignore
         (<any>app).keymap.pushScope(this.scope);
 
         container.appendChild(this.suggestEl);
@@ -185,6 +187,7 @@ export abstract class TextInputSuggest<T> implements ISuggestOwner<T> {
 
     close(): void {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        //@ts-ignore
         (<any>app).keymap.popScope(this.scope);
 
         this.suggest.setSuggestions([]);

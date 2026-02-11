@@ -147,6 +147,7 @@ class ButtonDisplaySetting extends Setting {
 			"enableEditor" |
 			"enableTabHeader" |
 			"enableBacklinks" |
+			"enableBases" |
 			"enableSearch" |
 			"enableFileExplorer" |
 			"enableStarred",
@@ -633,6 +634,16 @@ export default class MetadataMenuSettingTab extends PluginSettingTab {
 				value: "enableBacklinks"
 			},
 			{
+				name: "Bases",
+				description: "Display an extra button to access metadata menu form in a base view",
+				value: "enableBases"
+			},
+			{
+				name: "Markdown",
+				description: "Display an extra button to access metadata menu form in a base view",
+				value: "enableMarkdown"
+			},
+			{
 				name: "Search",
 				description: "Display an extra button to access metadata menu form in the search panel",
 				value: "enableSearch"
@@ -657,6 +668,7 @@ export default class MetadataMenuSettingTab extends PluginSettingTab {
 			"enableEditor" |
 			"enableTabHeader" |
 			"enableBacklinks" |
+			"enableBases" |
 			"enableSearch" |
 			"enableFileExplorer" |
 			"enableStarred",

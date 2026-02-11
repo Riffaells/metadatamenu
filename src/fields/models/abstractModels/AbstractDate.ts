@@ -241,9 +241,10 @@ export function valueModal(managedField: IFieldManager<Target, Options>, plugin:
                     type: getInputType(this.managedField.type),
                     cls: this.managedField.type === "Time"
                         ? "time-picker"
-                        : "date-picker"
+                        : "date-picker",
                 }
             )
+            if (this.managedField.type === "Time") calendarInput.setAttribute("step", "1")
             calendarInput.value = !this.initialValue
                 ? ""
                 : this.managedField.type === "Time"

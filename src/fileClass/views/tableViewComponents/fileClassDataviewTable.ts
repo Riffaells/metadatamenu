@@ -292,7 +292,7 @@ export class FileClassDataviewTable {
                 if (!this.firstCollWidth) this.firstCollWidth = parseFloat(getComputedStyle(firstColl[0]).width)
                 if (!this.tableFontSize) this.tableFontSize = parseFloat(getComputedStyle(firstFileLink).width)
                 const position = (e.target as HTMLDivElement).scrollLeft
-                if (window.matchMedia("(max-width: 400px)").matches) {
+                if (window.matchMedia("(max-width: 440px)").matches) {
                     if (position !== 0) {
                         table.addClass("scrolled");
                         table.querySelectorAll('tbody > tr > td:first-child').forEach((item: HTMLElement) => {

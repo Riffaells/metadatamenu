@@ -39,6 +39,8 @@ function setLinkMetadataFormButton(plugin: MetadataMenu, link: HTMLElement, dest
         case "backlink": if (!plugin.settings.enableBacklinks) return; break;
         case "search": if (!plugin.settings.enableSearch) return; break;
         case "outgoing-link": if (!plugin.settings.enableBacklinks) return; break;
+        case "bases": if (!plugin.settings.enableBases) return; break;
+        case "markdown": if (!plugin.settings.enableMarkdown) return; break;
         default: return;
     }
     // @ts-ignore
@@ -147,6 +149,8 @@ export function updateDivExtraAttributes(app: App, plugin: MetadataMenu, link: H
         default: {
             const linkName = _linkName || link.textContent
             const dest = linkName && app.metadataCache.getFirstLinkpathDest(getLinkpath(linkName), sourceName)
+
+
             if (dest) {
                 const fileClassName = plugin.fieldIndex.filesFileClassesNames.get(dest.path)?.last()
                 setLinkMetadataFormButton(plugin, link, dest.path.replace(/(.*).md/, "$1"), viewTypeName, fileClassName);

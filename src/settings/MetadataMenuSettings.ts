@@ -21,6 +21,8 @@ export interface MetadataMenuSettings {
 	enableTabHeader: boolean;
 	enableEditor: boolean;
 	enableBacklinks: boolean;
+	enableBases: boolean;
+	enableMarkdown: boolean;
 	enableStarred: boolean;
 	enableFileExplorer: boolean;
 	enableSearch: boolean;
@@ -55,6 +57,8 @@ export const DEFAULT_SETTINGS: MetadataMenuSettings = {
 	enableTabHeader: true,
 	enableEditor: true,
 	enableBacklinks: true,
+	enableBases: true,
+	enableMarkdown: true,
 	enableStarred: true,
 	enableFileExplorer: true,
 	enableSearch: true,

@@ -20,7 +20,7 @@ class FileClassQuery {
     };
 
     public matchFile(file: TFile): boolean {
-
+        //@ts-ignore
         const dataview = app.plugins.plugins.dataview
         //@ts-ignore
         if (this.query && dataview?.settings.enableDataviewJs && dataview?.settings.enableInlineDataviewJs) {

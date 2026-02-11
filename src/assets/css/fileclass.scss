@@ -79,7 +79,7 @@
             display: grid;
             grid-template-columns: auto auto auto 1fr;
             
-            @media screen and (max-width: 400px) {
+            @media screen and (max-width: 440px) {
                 grid-template-columns: auto auto auto;
             }
 
@@ -89,7 +89,7 @@
                 white-space: nowrap;
                 font-weight: 500;
                 display: inline-flex;
-                @media screen and (max-width: 400px) {
+                @media screen and (max-width: 440px) {
                     margin-top: 1em;
                 }
 
@@ -102,7 +102,7 @@
 
             .type-container{
                 grid-column: 2;
-                @media screen and (max-width: 400px) {
+                @media screen and (max-width: 440px) {
                     margin-top: 1em;
                 }
 
@@ -123,14 +123,14 @@
             .buttons-container{
                 grid-column: 3;
                 display: flex;
-                @media screen and (max-width: 400px) {
+                @media screen and (max-width: 440px) {
                     margin-top: 1em;
                 }
             }
 
             .options-container{
                 grid-column: 4;
-                @media screen and (max-width: 400px) {
+                @media screen and (max-width: 440px) {
                     grid-column: 1;
                     grid-column-start: span 3;
                 }
@@ -140,7 +140,7 @@
                     margin-left: 1em;
                     color: var(--text-muted);
 
-                    @media screen and (max-width: 400px) {
+                    @media screen and (max-width: 440px) {
                         margin-left: 0em;
                         white-space: normal;
                     }
@@ -173,7 +173,7 @@
             grid-template-columns: auto auto auto 1fr;
             align-items: center;;
             
-            @media screen and (max-width: 400px) {
+            @media screen and (max-width: 440px) {
                 grid-template-columns: 1fr auto;
             }
 
@@ -182,7 +182,7 @@
                 margin: 0.2em 1.3em 0.2em 0;
                 white-space: nowrap;
                 font-weight: 500;
-                @media screen and (max-width: 400px) {
+                @media screen and (max-width: 440px) {
                     margin-top: 1em
                 }
             }
@@ -190,7 +190,7 @@
             .action{
                 grid-column: 3;
                 margin: 0.2em 0em 0.2em 0;
-                @media screen and (max-width: 400px) {
+                @media screen and (max-width: 440px) {
                     grid-column: 1;
                     grid-column-start: span 2;
                 }
@@ -264,7 +264,7 @@
 
             .tooltip-btn{
                 grid-column: 2;
-                @media screen and (max-width: 400px) {
+                @media screen and (max-width: 440px) {
                     margin-top: 1em
                 }
 
@@ -282,23 +282,20 @@
 
             .tooltip-text{
                 grid-column: 4;
-                @media screen and (max-width: 400px) {
-                    grid-column: 1;
-                    grid-column-start: span 2;
-                }
-
                 color: var(--text-muted);
                 font-size: smaller;
                 line-break: strict;
                 line-height: normal;
+                @media screen and (max-width: 440px) {
+                    grid-column: 1;
+                    grid-column-start: span 2;
+                }
             }
         }
-
 
         .footer{
             @include footer-button();
         }
-
     }
 
     .fv-table{
@@ -311,7 +308,7 @@
         }
         */        
         .options{
-            @media screen and (max-width: 400px) {
+            @media screen and (max-width: 440px) {
                 max-height: 50em;
                 overflow: scroll;
             }

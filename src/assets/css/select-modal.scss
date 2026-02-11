@@ -166,10 +166,10 @@
         }
 
         .thumbnail-container {
+            color: var(--text-faint);
             img.thumbnail{
                 width: 100%;
             }
-            color: var(--text-faint);
         }
     }
 }
@@ -187,7 +187,7 @@
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 10px;
 
-        @media screen and (max-width: 400px) {
+        @media screen and (max-width: 440px) {
             grid-template-columns: auto;
         }
         @media (max-width: 780px) {
